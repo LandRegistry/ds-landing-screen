@@ -1,0 +1,73 @@
+
+<div class="container">
+    <div class="row">
+        <!-- <div class="col-sm-1"></div> -->
+  <div class="col-sm-3"><a href='{{prop}}'><img class="prop" src="\assets\home4.png"><br>{{address.firstLine}} <br>{{address.city}}</a></div>
+ <!-- <div class="NB"><div class="col-sm-1"></div> -->
+        <div class="col-sm-9">
+        <div class="arrow-steps clearfix">
+                  <div *ngIf="preext" class="step current"> <span>Contract Created</span> </div>
+                  <div *ngIf="preexf" class="step"> <span>Contract Created</span> </div>
+                  <div *ngIf="excht" class="step current"> <span>Contract Signed</span> </div>
+                  <div *ngIf="exchf" class="step"> <span>Contract Signed</span> </div>
+                  <div *ngIf="compt" class="step current"> <span>Payment Completed</span> </div>
+                  <div *ngIf="compf" class="step"> <span>Payment Completed</span> </div>
+                  <div *ngIf="bmit" class="step current"> <span>Buyer Moves In</span> </div>
+                  <div *ngIf="bmif" class="step"> <span>Buyer Moves In</span> </div>
+                  <div *ngIf="rut" class="step current"> <span>Registry Updated</span> </div>
+                  <div *ngIf="ruf" class="step"> <span>Registry Updated</span> </div>
+              </div><br>
+              
+        
+        <!-- </div> -->
+  </div>
+    </div>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-2"><a href='{{cont}}'><img class="seller" src="\assets\DEBBIE.png">Seller-{{sfirstname}} {{slastname}}</a></div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-2"><a href='{{conf}}'><img class="seller" src="\assets\EMMA.png">Buyer-{{bfirstname}} {{blastname}}</a></div>
+</div>
+
+<div class="row bton"> <button type="submit" class="btn btn-primary" (click)='updateregistry()' >Update Registry</button></div>
+<div class="row bton"> <button type="submit" class="btn btn-primary" (click)='movein()' >Move In Date</button></div>
+  <div class="PBV"><span style="cursor:pointer;color:#0c74b5" (click)="opennewtab()">Popup Blockchain Viewer</span></div>
+  <!-- <button type="submit" class="btn btn-primary" (click)='reset()' >Reset</button> -->
+  <!-- <div class="PBV"> <button id="popup"  (click)="div_show()">Popup Blockchain Viewer</button>
+    <span id="abc" style="overflow:hidden;">
+
+            <form class="form" > -->
+            <!-- <table id="customers" [mfData]="responsedata" #mf="mfDataTable" class="maintable" [mfRowsOnPage]="10">
+                <thead>
+                <tr>
+                 <th>Transaction</th>   
+                <th>Transaction Id</th>  
+                <th>Transaction Type</th>
+                <th>Transaction Invoked</th>
+                <th>Events Emitted</th>
+                <th><mfDefaultSorter by="transactionTimestamp">Transaction Timestamp</mfDefaultSorter></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let rd of mf.data">
+                     <td>{{rd.transaction}}</td>      
+                     <td>{{rd.transactionId}}</td>
+                     <td>{{rd.transactionType}}</td>
+                     <td>{{rd.transactionInvoked}}</td>
+                     <td>{{rd.transactionTimestamp}}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                     
+                      <td colspan="10" style="text-align: right;">
+                         <mfBootstrapPaginator></mfBootstrapPaginator>
+                     </td>
+                </tfoot>
+            </table>
+           <!-- </form> -->
+          <!-- </span>
+  </div> --> 
+
+
+
+</div>

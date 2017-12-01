@@ -1,0 +1,31 @@
+
+  <form class="form">
+   
+   <table id="customers" [mfData]="responsedata" #mf="mfDataTable" class="maintable" [mfRowsOnPage]="10">
+       <thead>
+       <tr>
+       <th>Transaction</th>    
+       <th>Transaction Id</th>  
+       <th>Transaction Type</th>
+       <th>Transaction Invoked</th>
+       <th><mfDefaultSorter by="transactionTimestamp">Transaction Timestamp</mfDefaultSorter></th>
+       </tr>
+       </thead>
+       <tbody>
+       <tr *ngFor="let rd of mf.data; let i = index">
+            <td>{{calltrans(rd.transactionType)}}</td> 
+            <td>{{rd.transactionId}}</td>
+            <td>{{rd.transactionType}}</td>
+            <td>{{rd.transactionInvoked}}</td>
+            <td>{{rd.transactionTimestamp}}</td>
+       </tr>
+       </tbody>
+       <tfoot>
+            
+             <td colspan="10" style="text-align: right;">
+                <mfBootstrapPaginator></mfBootstrapPaginator>
+            </td>
+       </tfoot>
+   </table>
+  </form>
+  

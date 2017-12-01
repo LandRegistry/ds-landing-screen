@@ -1,0 +1,172 @@
+/* You can add global styles to this file, and also import other style files */
+.demo-ribbon {
+    width: 100%;
+    height: 40vh;
+    background-color: #3F51B5;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+  }
+  
+  .demo-main {
+    margin-top: -35vh;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+  }
+  
+  .demo-header .mdl-layout__header-row {
+    padding-left: 40px;
+  }
+  
+  .demo-container {
+    max-width: 1600px;
+    width: calc(100% - 16px);
+    margin: 0 auto;
+  }
+  
+  .demo-content {
+    border-radius: 2px;
+    padding: 80px 56px;
+    margin-bottom: 80px;
+  }
+  
+  .demo-layout.is-small-screen .demo-content {
+    padding: 40px 28px;
+  }
+  
+  .demo-content h3 {
+    margin-top: 48px;
+  }
+  
+  .demo-footer {
+    padding-left: 40px;
+  }
+  
+  .demo-footer .mdl-mini-footer--link-list a {
+    font-size: 13px;
+  }
+  #view-source {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 0;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    z-index: 900;
+  }
+
+  .demo-main {
+    margin-top: -35vh;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+
+  .demo-container {
+    max-width: 1600px;
+    width: calc(100% - 16px);
+    margin: 0 auto;
+  }
+
+  .demo-ribbon {
+    width: 100%;
+    height: 40vh;
+    background-color: #0C1D3B;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+
+  .mdl-layout-title {
+    font-size: 15px;
+  }
+
+  .mdl-layout__header-row {
+    height: 30px;
+    color: white;
+    padding: 0 16px 0 20px;
+  }
+
+  .mdl-layout__header {
+    background-color: #0C1D3B;
+  }
+
+  .home-icon{
+    font-size: 17px;
+    margin-top: -2px;
+  }  
+  #view-source {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 0;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    z-index: 900;
+  }
+
+  .demo-main {
+    margin-top: -35vh;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+
+  .demo-container {
+    max-width: 1600px;
+    width: calc(100% - 16px);
+    margin: 0 auto;
+  }
+
+  .demo-ribbon {
+    width: 100%;
+    height: 40vh;
+    background-color: #0C1D3B;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+
+  .mdl-layout-title {
+    font-size: 15px;
+  }
+
+  .mdl-layout__header-row {
+    height: 100px;
+    color: white;
+    padding: 0 16px 0 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+  }
+
+  .mdl-layout__header {
+    background-color: #0C1D3B;
+  }
+
+  .home-icon{
+    font-size: 17px;
+    margin-top: -2px;
+  }
+  .right{
+    padding-right:0px;
+  }
+  .logo{
+    float: right;
+    height:70px;
+  }
+  .row{
+    /* background-color: #0C1D3B; */
+    background-color: white;
+    height: 70px;
+  }
+  .material-icons{
+    font-size: 20px;
+  }
+  .home{
+    font-size: 17px;
+  }
+  .col-sm-1{
+    vertical-align:middle;
+    padding-top: 20px;
+  }

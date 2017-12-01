@@ -1,0 +1,9 @@
+---
+applications:
+ - name: LandingScreen
+   buildpack: staticfile_buildpack
+   instances: 1
+   domain: eu-gb.mybluemix.net
+   host: hmlr-ds-landingscreen
+   memory: 32M
+   path: ./dist
