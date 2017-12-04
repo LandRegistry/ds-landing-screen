@@ -41,7 +41,7 @@ object = {
 
     console.log("body",body);
 
-    this.http.post("http://localhost:6001/api/resetdemo",body,options).subscribe(res=>{
+    this.http.post("https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/resetdemo",body,options).subscribe(res=>{
       this.responsedata= res.json();
       console.log("responsedata",this.responsedata);
       var data1= JSON.stringify(this.responsedata);
