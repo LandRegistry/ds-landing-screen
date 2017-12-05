@@ -45,7 +45,7 @@ object = {
       this.responsedata= res.json();
       console.log("responsedata",this.responsedata);
       var data1= JSON.stringify(this.responsedata);
-      this.cont="http://localhost:8081/#/contract/100000002/100000008/" + data1;
+      this.cont="https://hmlr-ds-transactionui.eu-gb.mybluemix.net/#/contract/100000002/100000008/" + data1;
       console.log("url",this.cont);
       localStorage.setItem("data2",data1);
       alert("Demo reset")
