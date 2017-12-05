@@ -13,7 +13,7 @@ export class BcviewerComponent implements OnInit {
 
 responsedata: any[];transaction;
   constructor(private http: Http, private router: Router) { 
-  this.http.get("http://localhost:3000/api/queries/selectAllTransactions").subscribe(res => {
+  this.http.get("http://169.51.15.13:31090/api/queries/selectAllTransactions").subscribe(res => {
     this.responsedata= res.json();
     console.log(this.responsedata);
     

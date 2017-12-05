@@ -29,7 +29,7 @@ let body = JSON.stringify(data);
 
 console.log(body);
 
-this.http.post('http://localhost:6001/api/get/participant', body, options).subscribe(res => {
+this.http.post('https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/get/participant', body, options).subscribe(res => {
   
  this.responsedata= res.json();
  console.log(this.responsedata);

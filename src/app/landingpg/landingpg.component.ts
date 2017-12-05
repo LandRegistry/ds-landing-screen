@@ -46,7 +46,7 @@ export class LandingpgComponent implements OnInit {
   this.compf=true;
   this.bmif=true;
   this.ruf=true;
-  this.http.post("https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/get/asset/", body, options).subscribe(res => {
+  this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/get/asset/", body, options).subscribe(res => {
 
     this.responsedata_status= res.json();
     console.log("responsedata",this.responsedata_status);
@@ -106,7 +106,7 @@ export class LandingpgComponent implements OnInit {
     this.compf=true;
   }
   });
-  this.http.get("http://localhost:3000/api/queries/selectAllTransactions").subscribe(res => {
+  this.http.get("http://169.51.15.13:31090/api/queries/selectAllTransactions").subscribe(res => {
     this.responsedatapop= res.json();
     console.log(this.responsedatapop);
     console.log(this.responsedatapop[0].transactionType);
@@ -153,7 +153,7 @@ let body1 = JSON.stringify(data1);
 
 console.log(body1);
 
-this.http.post('https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/get/participant', body1, options1).subscribe(res => {
+this.http.post('https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/get/participant', body1, options1).subscribe(res => {
   
  this.responsedata1= res.json();
  console.log(this.responsedata1);
@@ -181,7 +181,7 @@ let body2 = JSON.stringify(data2);
 
 console.log(body2);
 
-this.http.post('https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/get/participant', body2, options2).subscribe(res => {
+this.http.post('https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/get/participant', body2, options2).subscribe(res => {
 
 this.responsedata2= res.json();
 console.log(this.responsedata2);
@@ -247,7 +247,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/resetdemo",body,options).subscribe(res=>{
+    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/resetdemo",body,options).subscribe(res=>{
       this.responsedata= res.json();
       console.log("responsedata",this.responsedata);
       var data1= JSON.stringify(this.responsedata);
@@ -275,7 +275,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
     console.log("body",body);
 
 
-    this.http.post("https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/property/transfer",body,options).subscribe(res=>{
+    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/property/transfer",body,options).subscribe(res=>{
 
       this.changestatus();
     });
@@ -297,7 +297,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
       alert("Registry Updated");
       window.location.reload();
     });
@@ -319,7 +319,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
       alert("Buyer Moves In");
       window.location.reload();
     });

@@ -25,7 +25,7 @@ object = {
   {
     var strWindowFeatures = "resizable=yes,scrollbars=yes";
     // window.open('http://localhost:4200/#/linedetail','newwindow',strWindowFeatures)
-    window.open("http://hmlr-ds-paul-property-advisor-ui.eu-gb.mybluemix.net",'newwindow',strWindowFeatures)
+    window.open("https://hmlr-ds-paul-property-advisor-ui.eu-gb.mybluemix.net",'newwindow',strWindowFeatures)
   }
   
   reset(){
@@ -41,7 +41,7 @@ object = {
 
     console.log("body",body);
 
-    this.http.post("https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/resetdemo",body,options).subscribe(res=>{
+    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/resetdemo",body,options).subscribe(res=>{
       this.responsedata= res.json();
       console.log("responsedata",this.responsedata);
       var data1= JSON.stringify(this.responsedata);
