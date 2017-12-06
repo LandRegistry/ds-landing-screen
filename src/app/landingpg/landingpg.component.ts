@@ -232,7 +232,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
   {
     var strWindowFeatures = "resizable=yes,scrollbars=yes";
     // window.open('http://localhost:4200/#/linedetail','newwindow',strWindowFeatures)
-    window.open("https://hmlr-ds-landingscreen.eu-gb.mybluemix.net/#/BCViewer",'newwindow',strWindowFeatures)
+    window.open("http://hmlr-ds-landingscreen.eu-gb.mybluemix.net/#/BCViewer",'newwindow',strWindowFeatures)
   }
   reset(){
     var data = {}
