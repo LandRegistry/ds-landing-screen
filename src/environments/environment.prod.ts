@@ -8,5 +8,5 @@ export const environment = {
   propertyAPI: 'https://hmlr-ds-propertyapi.eu-gb.mybluemix.net', // :9001
   transactionAPI: 'https://hmlr-ds-transactionapi.eu-gb.mybluemix.net', // :6001
   transactionUI: 'https://hmlr-ds-transactionui.eu-gb.mybluemix.net', // :8081
-  composerExplorer: 'http://169.51.15.13:31090' // :3000
+  composerExplorer: 'http://169.51.23.118:31090' // :3000
 };

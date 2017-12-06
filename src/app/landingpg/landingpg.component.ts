@@ -106,7 +106,7 @@ export class LandingpgComponent implements OnInit {
     this.compf=true;
   }
   });
-  this.http.get("http://169.51.15.13:31090/api/queries/selectAllTransactions").subscribe(res => {
+  this.http.get("http://169.51.23.118:31090/api/queries/selectAllTransactions").subscribe(res => {
     this.responsedatapop= res.json();
     console.log(this.responsedatapop);
     console.log(this.responsedatapop[0].transactionType);
