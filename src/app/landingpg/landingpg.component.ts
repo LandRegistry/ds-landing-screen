@@ -222,96 +222,96 @@ this.slastname=this.responsedata2.saleParticipantLastName
     // window.open('http://localhost:4200/#/linedetail','newwindow',strWindowFeatures)
     window.open(environment.landingScreen + "/#/BCViewer",'newwindow',strWindowFeatures)
   }
-  reset(){
-    var data = {}
+  // reset(){
+  //   var data = {}
 
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    let body = JSON.stringify(data);
+  //   let headers = new Headers({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   let options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   let body = JSON.stringify(data);
 
-    console.log("body",body);
+  //   console.log("body",body);
 
-    this.http.post(environment.transactionAPI + "/api/resetdemo",body,options).subscribe(res=>{
-      this.responsedata= res.json();
-      console.log("responsedata",this.responsedata);
-      var data1= JSON.stringify(this.responsedata);
-      this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + data1;
-      console.log("url",this.cont);
-      localStorage.setItem("data2",data1);
-      alert("Demo reset")
-    });
-  }
+  //   this.http.post(environment.transactionAPI + "/api/resetdemo",body,options).subscribe(res=>{
+  //     this.responsedata= res.json();
+  //     console.log("responsedata",this.responsedata);
+  //     var data1= JSON.stringify(this.responsedata);
+  //     this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + data1;
+  //     console.log("url",this.cont);
+  //     localStorage.setItem("data2",data1);
+  //     alert("Demo reset")
+  //   });
+  // }
 
-  updateregistry(){
-    var data ={
-      propertyExchangeId: "propertyExchange".concat(this.data2),
-     // user: "100000008"
-     user: "hmlr"
-    }
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    let body = JSON.stringify(data);
+  // updateregistry(){
+  //   var data ={
+  //     propertyExchangeId: "propertyExchange".concat(this.data2),
+  //    // user: "100000008"
+  //    user: "hmlr"
+  //   }
+  //   let headers = new Headers({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   let options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   let body = JSON.stringify(data);
 
-    console.log("body",body);
+  //   console.log("body",body);
 
 
-    this.http.post(environment.transactionAPI + "/api/property/transfer",body,options).subscribe(res=>{
+  //   this.http.post(environment.transactionAPI + "/api/property/transfer",body,options).subscribe(res=>{
 
-      this.changestatus();
-    });
+  //     this.changestatus();
+  //   });
       
-  }
-  changestatus(){
-    var data ={
-      propertyExchangeId:"propertyExchange".concat(this.data2),
-      propertyExchangeStatus:"REGISTRY_UPDATED",
-      user:"admin"
-     }
-     let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    let body = JSON.stringify(data);
+  // }
+  // changestatus(){
+  //   var data ={
+  //     propertyExchangeId:"propertyExchange".concat(this.data2),
+  //     propertyExchangeStatus:"REGISTRY_UPDATED",
+  //     user:"admin"
+  //    }
+  //    let headers = new Headers({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   let options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   let body = JSON.stringify(data);
 
-    console.log("body",body);
+  //   console.log("body",body);
 
-    this.http.post(environment.transactionAPI + "/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
-      alert("Registry Updated");
-      window.location.reload();
-    });
+  //   this.http.post(environment.transactionAPI + "/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+  //     alert("Registry Updated");
+  //     window.location.reload();
+  //   });
     
-  }
-  movein(){
-    var data ={
-      propertyExchangeId:"propertyExchange".concat(this.data2),
-      propertyExchangeStatus:"BUYER_MOVES_IN",
-      user:"admin"
-     }
-     let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    let body = JSON.stringify(data);
+  // }
+  // movein(){
+  //   var data ={
+  //     propertyExchangeId:"propertyExchange".concat(this.data2),
+  //     propertyExchangeStatus:"BUYER_MOVES_IN",
+  //     user:"admin"
+  //    }
+  //    let headers = new Headers({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   let options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   let body = JSON.stringify(data);
 
-    console.log("body",body);
+  //   console.log("body",body);
 
-    this.http.post(environment.transactionAPI + "/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
-      alert("Buyer Moves In");
-      window.location.reload();
-    });
-  }
+  //   this.http.post(environment.transactionAPI + "/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+  //     alert("Buyer Moves In");
+  //     window.location.reload();
+  //   });
+  // }
   div_hide(){
     document.getElementById('abc').style.display = "none";
     }
