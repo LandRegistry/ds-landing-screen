@@ -8,14 +8,14 @@
         <div class="arrow-steps clearfix">
                   <div *ngIf="preext" class="step current"> <span>Contract Created</span> </div>
                   <div *ngIf="preexf" class="step"> <span>Contract Created</span> </div>
-                  <div *ngIf="excht" class="step current"> <span>Contract Signed</span> </div>
-                  <div *ngIf="exchf" class="step"> <span>Contract Signed</span> </div>
-                  <div *ngIf="compt" class="step current"> <span>Payment Completed</span> </div>
-                  <div *ngIf="compf" class="step"> <span>Payment Completed</span> </div>
-                  <div *ngIf="bmit" class="step current"> <span>Buyer Moves In</span> </div>
-                  <div *ngIf="bmif" class="step"> <span>Buyer Moves In</span> </div>
-                  <div *ngIf="rut" class="step current"> <span>Registry Updated</span> </div>
-                  <div *ngIf="ruf" class="step"> <span>Registry Updated</span> </div>
+                  <div *ngIf="excht" class="step current"> <span>Seller's Contract Signed</span> </div>
+                  <div *ngIf="exchf" class="step"> <span>Seller's Contract Signed</span> </div>
+                  <div *ngIf="compt" class="step current"> <span>Buyer's Contract Signed</span> </div>
+                  <div *ngIf="compf" class="step"> <span>Buyer's Contract Signed</span> </div>
+                  <div *ngIf="bmit" class="step current"> <span>Deposit Paid</span> </div>
+                  <div *ngIf="bmif" class="step"> <span>Deposit Paid</span> </div>
+                  <div *ngIf="rut" class="step current"> <span>Completion</span> </div>
+                  <div *ngIf="ruf" class="step"> <span>Completion</span> </div>
               </div><br>
               
         
@@ -29,8 +29,6 @@
   <div class="col-sm-2"><a href='{{conf}}'><img class="seller" src="\assets\EMMA.png">Buyer-{{bfirstname}} {{blastname}}</a></div>
 </div>
 
-<div class="row bton"> <button type="submit" class="btn btn-primary" (click)='updateregistry()' >Update Registry</button></div>
-<div class="row bton"> <button type="submit" class="btn btn-primary" (click)='movein()' >Move In Date</button></div>
   <div class="PBV"><span style="cursor:pointer;color:#0c74b5" (click)="opennewtab()">Popup Blockchain Viewer</span></div>
   <!-- <button type="submit" class="btn btn-primary" (click)='reset()' >Reset</button> -->
   <!-- <div class="PBV"> <button id="popup"  (click)="div_show()">Popup Blockchain Viewer</button>

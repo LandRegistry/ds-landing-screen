@@ -41,11 +41,11 @@ object = {
 
     console.log("body",body);
 
-    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/resetdemo",body,options).subscribe(res=>{
+    this.http.post("http://localhost:6001/api/resetdemo",body,options).subscribe(res=>{
       this.responsedata= res.json();
       console.log("responsedata",this.responsedata);
       var data1= JSON.stringify(this.responsedata);
-      this.cont="https://hmlr-ds-transactionui.eu-gb.mybluemix.net/#/contract/100000002/100000008/" + data1;
+      this.cont="http://localhost:8081/#/contract/100000002/100000008/" + data1;
       console.log("url",this.cont);
       localStorage.setItem("data2",data1);
       alert("Demo reset")

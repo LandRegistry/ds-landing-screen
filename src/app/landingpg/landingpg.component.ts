@@ -15,11 +15,11 @@ export class LandingpgComponent implements OnInit {
   responsedatapop: any[];
   constructor(public http: Http, private router: Router,private route: ActivatedRoute) { 
     this.data2=localStorage.getItem("data2");
-    this.prop="https://hmlr-ds-transactionui.eu-gb.mybluemix.net/#/property/contract"+this.data2;
+    this.prop="http://localhost:8081/#/property/contract"+this.data2;
     console.log("url",this.prop);
-    this.conf="https://hmlr-ds-transactionui.eu-gb.mybluemix.net/#/confirm/contract"+this.data2;
+    this.conf="http://localhost:8081/#/confirm/contract"+this.data2;
     console.log("url",this.conf);
-    this.cont="https://hmlr-ds-transactionui.eu-gb.mybluemix.net/#/contract/100000002/100000008/" + this.data2;
+    this.cont="http://localhost:8081/#/contract/100000002/100000008/" + this.data2;
     console.log("url",this.cont);
     this.address = {
       firstLine: '21 Cotham Lawn Road',
@@ -46,7 +46,7 @@ export class LandingpgComponent implements OnInit {
   this.compf=true;
   this.bmif=true;
   this.ruf=true;
-  this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/get/asset/", body, options).subscribe(res => {
+  this.http.post("http://localhost:6001/api/get/asset/", body, options).subscribe(res => {
 
     this.responsedata_status= res.json();
     console.log("responsedata",this.responsedata_status);
@@ -55,28 +55,13 @@ export class LandingpgComponent implements OnInit {
    if(this.status=="CONTRACT_CREATED"){
      console.log("entering preexchange");
      this.preext=true;
-     this.preexf=false;
-
-   }
-   else if(this.status=="CONTRACT_SIGNED"){
-    console.log("entering exchanged");
-    this.preext=true;
      this.excht=true;
      this.preexf=false;
      this.exchf=false;
-     this.conf="https://hmlr-ds-transactionui.eu-gb.mybluemix.net/#/signfail/"+this.data2;
+     this.conf="http://localhost:8081/#/signfail/"+this.data2;
    }
-   else if(this.status=="PAYMENT_COMPLETED"){
+   else if(this.status=="CONTRACT_SIGNED" || this.status == "BUYER_MOVES_IN"){
     console.log("entering completed");
-    this.preext=true;
-    this.excht=true;
-    this.compt=true;
-    this.preexf=false;
-    this.exchf=false;
-    this.compf=false;
-  }
-  else if(this.status=="BUYER_MOVES_IN"){
-    console.log("entering buyer moves in");
     this.preext=true;
     this.excht=true;
     this.compt=true;
@@ -85,8 +70,10 @@ export class LandingpgComponent implements OnInit {
     this.exchf=false;
     this.compf=false;
     this.bmif=false;
+    this.conf="http://localhost:8081/#/payment/propertyExchange"+this.data2;    
   }
-  else if(this.status=="REGISTRY_UPDATED"){
+
+  else if(this.status == "REGISTRY_UPDATED"){
     console.log("entering registry updated");
     this.preext=true;
     this.excht=true;
@@ -99,14 +86,14 @@ export class LandingpgComponent implements OnInit {
     this.bmif=false;
     this.ruf=false;
   }
-  else{
+  else {
     console.log("entering else");
     this.preexf=true;
     this.exchf=true;
     this.compf=true;
   }
   });
-  this.http.get("http://169.51.23.118:31090/api/queries/selectAllTransactions").subscribe(res => {
+  this.http.get("http://localhost:3000/api/queries/selectAllTransactions").subscribe(res => {
     this.responsedatapop= res.json();
     console.log(this.responsedatapop);
     console.log(this.responsedatapop[0].transactionType);
@@ -122,7 +109,7 @@ export class LandingpgComponent implements OnInit {
   }); 
   },err=>(
 
-           alert("somthing went wrong")
+           alert("something went wrong")
          ));
 
   }
@@ -153,7 +140,7 @@ let body1 = JSON.stringify(data1);
 
 console.log(body1);
 
-this.http.post('https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/get/participant', body1, options1).subscribe(res => {
+this.http.post('http://localhost:6001/api/get/participant', body1, options1).subscribe(res => {
   
  this.responsedata1= res.json();
  console.log(this.responsedata1);
@@ -181,7 +168,7 @@ let body2 = JSON.stringify(data2);
 
 console.log(body2);
 
-this.http.post('https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/get/participant', body2, options2).subscribe(res => {
+this.http.post('http://localhost:6001/api/get/participant', body2, options2).subscribe(res => {
 
 this.responsedata2= res.json();
 console.log(this.responsedata2);
@@ -247,11 +234,11 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/resetdemo",body,options).subscribe(res=>{
+    this.http.post("http://localhost:6001/api/resetdemo",body,options).subscribe(res=>{
       this.responsedata= res.json();
       console.log("responsedata",this.responsedata);
       var data1= JSON.stringify(this.responsedata);
-      this.cont="https://hmlr-ds-transactionui.eu-gb.mybluemix.net/#/contract/100000002/100000008/" + data1;
+      this.cont="http://localhost:8081/#/contract/100000002/100000008/" + data1;
       console.log("url",this.cont);
       localStorage.setItem("data2",data1);
       alert("Demo reset")
@@ -275,7 +262,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
     console.log("body",body);
 
 
-    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/property/transfer",body,options).subscribe(res=>{
+    this.http.post("http://localhost:6001/api/property/transfer",body,options).subscribe(res=>{
 
       this.changestatus();
     });
@@ -297,7 +284,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+    this.http.post("http://localhost:6001/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
       alert("Registry Updated");
       window.location.reload();
     });
@@ -319,7 +306,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("https://hmlr-ds-transactionapi.eu-gb.mybluemix.net/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+    this.http.post("http://localhost:6001/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
       alert("Buyer Moves In");
       window.location.reload();
     });
