@@ -3,6 +3,7 @@ import { Http,Response,HttpModule, Headers,RequestOptions} from '@angular/http';
 import {Router } from '@angular/router';
 import {FormsModule } from '@angular/forms';
 import {DataTableModule} from "angular2-datatable";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-bcviewer',
@@ -13,7 +14,7 @@ export class BcviewerComponent implements OnInit {
 
 responsedata: any[];transaction;
   constructor(private http: Http, private router: Router) { 
-  this.http.get("http://localhost:3000/api/queries/selectAllTransactions").subscribe(res => {
+  this.http.get(environment.composerExplorer + "/api/queries/selectAllTransactions").subscribe(res => {
     this.responsedata= res.json();
     console.log(this.responsedata);
     

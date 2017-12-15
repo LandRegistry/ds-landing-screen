@@ -3,6 +3,7 @@ import { Http,Response,HttpModule, Headers,RequestOptions} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormsModule } from '@angular/forms';
 import {DataTableModule} from "angular2-datatable";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-landingpg',
@@ -15,11 +16,11 @@ export class LandingpgComponent implements OnInit {
   responsedatapop: any[];
   constructor(public http: Http, private router: Router,private route: ActivatedRoute) { 
     this.data2=localStorage.getItem("data2");
-    this.prop="http://localhost:8081/#/property/contract"+this.data2;
+    this.prop=environment.transactionUI + "/#/property/contract"+this.data2;
     console.log("url",this.prop);
-    this.conf="http://localhost:8081/#/confirm/contract"+this.data2;
+    this.conf=environment.transactionUI + "/#/confirm/contract"+this.data2;
     console.log("url",this.conf);
-    this.cont="http://localhost:8081/#/contract/100000002/100000008/" + this.data2;
+    this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + this.data2;
     console.log("url",this.cont);
     this.address = {
       firstLine: '21 Cotham Lawn Road',
@@ -46,7 +47,7 @@ export class LandingpgComponent implements OnInit {
   this.compf=true;
   this.bmif=true;
   this.ruf=true;
-  this.http.post("http://localhost:6001/api/get/asset/", body, options).subscribe(res => {
+  this.http.post(environment.transactionAPI + "/api/get/asset/", body, options).subscribe(res => {
 
     this.responsedata_status= res.json();
     console.log("responsedata",this.responsedata_status);
@@ -55,28 +56,13 @@ export class LandingpgComponent implements OnInit {
    if(this.status=="CONTRACT_CREATED"){
      console.log("entering preexchange");
      this.preext=true;
-     this.preexf=false;
-
-   }
-   else if(this.status=="CONTRACT_SIGNED"){
-    console.log("entering exchanged");
-    this.preext=true;
      this.excht=true;
      this.preexf=false;
      this.exchf=false;
-     this.conf="http://localhost:8081/#/signfail/"+this.data2;
+     this.conf=environment.transactionUI + "/#/signfail/"+this.data2;
    }
-   else if(this.status=="PAYMENT_COMPLETED"){
+   else if(this.status=="CONTRACT_SIGNED" || this.status == "BUYER_MOVES_IN"){
     console.log("entering completed");
-    this.preext=true;
-    this.excht=true;
-    this.compt=true;
-    this.preexf=false;
-    this.exchf=false;
-    this.compf=false;
-  }
-  else if(this.status=="BUYER_MOVES_IN"){
-    console.log("entering buyer moves in");
     this.preext=true;
     this.excht=true;
     this.compt=true;
@@ -85,8 +71,10 @@ export class LandingpgComponent implements OnInit {
     this.exchf=false;
     this.compf=false;
     this.bmif=false;
+    this.conf=environment.transactionUI + "/#/payment/propertyExchange"+this.data2;    
   }
-  else if(this.status=="REGISTRY_UPDATED"){
+
+  else if(this.status == "REGISTRY_UPDATED"){
     console.log("entering registry updated");
     this.preext=true;
     this.excht=true;
@@ -99,14 +87,14 @@ export class LandingpgComponent implements OnInit {
     this.bmif=false;
     this.ruf=false;
   }
-  else{
+  else {
     console.log("entering else");
     this.preexf=true;
     this.exchf=true;
     this.compf=true;
   }
   });
-  this.http.get("http://localhost:3000/api/queries/selectAllTransactions").subscribe(res => {
+  this.http.get(environment.composerExplorer + "/api/queries/selectAllTransactions").subscribe(res => {
     this.responsedatapop= res.json();
     console.log(this.responsedatapop);
     console.log(this.responsedatapop[0].transactionType);
@@ -122,7 +110,7 @@ export class LandingpgComponent implements OnInit {
   }); 
   },err=>(
 
-           alert("somthing went wrong")
+           alert("something went wrong")
          ));
 
   }
@@ -153,7 +141,7 @@ let body1 = JSON.stringify(data1);
 
 console.log(body1);
 
-this.http.post('http://localhost:6001/api/get/participant', body1, options1).subscribe(res => {
+this.http.post(environment.transactionAPI + '/api/get/participant', body1, options1).subscribe(res => {
   
  this.responsedata1= res.json();
  console.log(this.responsedata1);
@@ -181,7 +169,7 @@ let body2 = JSON.stringify(data2);
 
 console.log(body2);
 
-this.http.post('http://localhost:6001/api/get/participant', body2, options2).subscribe(res => {
+this.http.post(environment.transactionAPI + '/api/get/participant', body2, options2).subscribe(res => {
 
 this.responsedata2= res.json();
 console.log(this.responsedata2);
@@ -199,7 +187,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
     //   user: "admin"
     // });
 
-    // const getUser = (user) => fetch('http://localhost:6001/api/get/participant', {
+    // const getUser = (user) => fetch('https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/api/get/participant', {
     //   method: 'POST',
     //   mode: 'cors',
     //   body: user,
@@ -232,98 +220,98 @@ this.slastname=this.responsedata2.saleParticipantLastName
   {
     var strWindowFeatures = "resizable=yes,scrollbars=yes";
     // window.open('http://localhost:4200/#/linedetail','newwindow',strWindowFeatures)
-    window.open("http://localhost:4202/#/BCViewer",'newwindow',strWindowFeatures)
+    window.open(environment.landingScreen + "/#/BCViewer",'newwindow',strWindowFeatures)
   }
-  reset(){
-    var data = {}
+  // reset(){
+  //   var data = {}
 
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    let body = JSON.stringify(data);
+  //   let headers = new Headers({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   let options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   let body = JSON.stringify(data);
 
-    console.log("body",body);
+  //   console.log("body",body);
 
-    this.http.post("http://localhost:6001/api/resetdemo",body,options).subscribe(res=>{
-      this.responsedata= res.json();
-      console.log("responsedata",this.responsedata);
-      var data1= JSON.stringify(this.responsedata);
-      this.cont="http://localhost:8081/#/contract/100000002/100000008/" + data1;
-      console.log("url",this.cont);
-      localStorage.setItem("data2",data1);
-      alert("Demo reset")
-    });
-  }
+  //   this.http.post(environment.transactionAPI + "/api/resetdemo",body,options).subscribe(res=>{
+  //     this.responsedata= res.json();
+  //     console.log("responsedata",this.responsedata);
+  //     var data1= JSON.stringify(this.responsedata);
+  //     this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + data1;
+  //     console.log("url",this.cont);
+  //     localStorage.setItem("data2",data1);
+  //     alert("Demo reset")
+  //   });
+  // }
 
-  updateregistry(){
-    var data ={
-      propertyExchangeId: "propertyExchange".concat(this.data2),
-     // user: "100000008"
-     user: "hmlr"
-    }
-    let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    let body = JSON.stringify(data);
+  // updateregistry(){
+  //   var data ={
+  //     propertyExchangeId: "propertyExchange".concat(this.data2),
+  //    // user: "100000008"
+  //    user: "hmlr"
+  //   }
+  //   let headers = new Headers({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   let options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   let body = JSON.stringify(data);
 
-    console.log("body",body);
+  //   console.log("body",body);
 
 
-    this.http.post("http://localhost:6001/api/property/transfer",body,options).subscribe(res=>{
+  //   this.http.post(environment.transactionAPI + "/api/property/transfer",body,options).subscribe(res=>{
 
-      this.changestatus();
-    });
+  //     this.changestatus();
+  //   });
       
-  }
-  changestatus(){
-    var data ={
-      propertyExchangeId:"propertyExchange".concat(this.data2),
-      propertyExchangeStatus:"REGISTRY_UPDATED",
-      user:"admin"
-     }
-     let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    let body = JSON.stringify(data);
+  // }
+  // changestatus(){
+  //   var data ={
+  //     propertyExchangeId:"propertyExchange".concat(this.data2),
+  //     propertyExchangeStatus:"REGISTRY_UPDATED",
+  //     user:"admin"
+  //    }
+  //    let headers = new Headers({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   let options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   let body = JSON.stringify(data);
 
-    console.log("body",body);
+  //   console.log("body",body);
 
-    this.http.post("http://localhost:6001/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
-      alert("Registry Updated");
-      window.location.reload();
-    });
+  //   this.http.post(environment.transactionAPI + "/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+  //     alert("Registry Updated");
+  //     window.location.reload();
+  //   });
     
-  }
-  movein(){
-    var data ={
-      propertyExchangeId:"propertyExchange".concat(this.data2),
-      propertyExchangeStatus:"BUYER_MOVES_IN",
-      user:"admin"
-     }
-     let headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
-    let body = JSON.stringify(data);
+  // }
+  // movein(){
+  //   var data ={
+  //     propertyExchangeId:"propertyExchange".concat(this.data2),
+  //     propertyExchangeStatus:"BUYER_MOVES_IN",
+  //     user:"admin"
+  //    }
+  //    let headers = new Headers({
+  //     'Content-Type': 'application/json'
+  //   });
+  //   let options = new RequestOptions({
+  //     headers: headers
+  //   });
+  //   let body = JSON.stringify(data);
 
-    console.log("body",body);
+  //   console.log("body",body);
 
-    this.http.post("http://localhost:6001/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
-      alert("Buyer Moves In");
-      window.location.reload();
-    });
-  }
+  //   this.http.post(environment.transactionAPI + "/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+  //     alert("Buyer Moves In");
+  //     window.location.reload();
+  //   });
+  // }
   div_hide(){
     document.getElementById('abc').style.display = "none";
     }
