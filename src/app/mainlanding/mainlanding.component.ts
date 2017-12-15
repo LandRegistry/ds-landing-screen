@@ -3,6 +3,7 @@ import { Http,Response,HttpModule, Headers,RequestOptions} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-mainlanding',
@@ -25,7 +26,7 @@ object = {
   {
     var strWindowFeatures = "resizable=yes,scrollbars=yes";
     // window.open('http://localhost:4200/#/linedetail','newwindow',strWindowFeatures)
-    window.open("https://hmlr-ds-paul-property-advisor-ui.eu-gb.mybluemix.net",'newwindow',strWindowFeatures)
+    window.open(environment.paulPropertyAdvisorUI,'newwindow',strWindowFeatures)
   }
   
   reset(){
@@ -41,11 +42,11 @@ object = {
 
     console.log("body",body);
 
-    this.http.post("http://localhost:6001/api/resetdemo",body,options).subscribe(res=>{
+    this.http.post(environment.transactionAPI + "/api/resetdemo",body,options).subscribe(res=>{
       this.responsedata= res.json();
       console.log("responsedata",this.responsedata);
       var data1= JSON.stringify(this.responsedata);
-      this.cont="http://localhost:8081/#/contract/100000002/100000008/" + data1;
+      this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + data1;
       console.log("url",this.cont);
       localStorage.setItem("data2",data1);
       alert("Demo reset")

@@ -5,10 +5,10 @@
 
 export const environment = {
   production: false,
-  instantMortgageAPI: '',
+  instantMortgageAPI: 'http://localhost:4000',
   instantMortgageUI: 'http://localhost:8100',
   landingScreen: 'http://localhost:4200',
-  paulPropertyAdvisorUI: '', 
+  paulPropertyAdvisorUI: 'http://localhost:6002', 
   personAPI: 'http://localhost:9002',
   propertyAPI: 'http://localhost:9001',
   transactionAPI: 'http://localhost:6001',

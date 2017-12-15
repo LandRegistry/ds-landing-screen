@@ -3,6 +3,7 @@ import { Http,Response,HttpModule, Headers,RequestOptions} from '@angular/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormsModule } from '@angular/forms';
 import {DataTableModule} from "angular2-datatable";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-landingpg',
@@ -15,11 +16,11 @@ export class LandingpgComponent implements OnInit {
   responsedatapop: any[];
   constructor(public http: Http, private router: Router,private route: ActivatedRoute) { 
     this.data2=localStorage.getItem("data2");
-    this.prop="http://localhost:8081/#/property/contract"+this.data2;
+    this.prop=environment.transactionUI + "/#/property/contract"+this.data2;
     console.log("url",this.prop);
-    this.conf="http://localhost:8081/#/confirm/contract"+this.data2;
+    this.conf=environment.transactionUI + "/#/confirm/contract"+this.data2;
     console.log("url",this.conf);
-    this.cont="http://localhost:8081/#/contract/100000002/100000008/" + this.data2;
+    this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + this.data2;
     console.log("url",this.cont);
     this.address = {
       firstLine: '21 Cotham Lawn Road',
@@ -46,7 +47,7 @@ export class LandingpgComponent implements OnInit {
   this.compf=true;
   this.bmif=true;
   this.ruf=true;
-  this.http.post("http://localhost:6001/api/get/asset/", body, options).subscribe(res => {
+  this.http.post(environment.transactionAPI + "/api/get/asset/", body, options).subscribe(res => {
 
     this.responsedata_status= res.json();
     console.log("responsedata",this.responsedata_status);
@@ -58,7 +59,7 @@ export class LandingpgComponent implements OnInit {
      this.excht=true;
      this.preexf=false;
      this.exchf=false;
-     this.conf="http://localhost:8081/#/confirm/contract"+this.data2;
+     this.conf=environment.transactionUI + "/#/signfail/"+this.data2;
    }
    else if(this.status=="CONTRACT_SIGNED" || this.status == "BUYER_MOVES_IN"){
     console.log("entering completed");
@@ -70,7 +71,7 @@ export class LandingpgComponent implements OnInit {
     this.exchf=false;
     this.compf=false;
     this.bmif=false;
-    this.conf="http://localhost:8081/#/payment/propertyExchange"+this.data2;    
+    this.conf=environment.transactionUI + "/#/payment/propertyExchange"+this.data2;    
   }
 
   else if(this.status == "REGISTRY_UPDATED"){
@@ -93,7 +94,7 @@ export class LandingpgComponent implements OnInit {
     this.compf=true;
   }
   });
-  this.http.get("http://localhost:3000/api/queries/selectAllTransactions").subscribe(res => {
+  this.http.get(environment.composerExplorer + "/api/queries/selectAllTransactions").subscribe(res => {
     this.responsedatapop= res.json();
     console.log(this.responsedatapop);
     console.log(this.responsedatapop[0].transactionType);
@@ -140,7 +141,7 @@ let body1 = JSON.stringify(data1);
 
 console.log(body1);
 
-this.http.post('http://localhost:6001/api/get/participant', body1, options1).subscribe(res => {
+this.http.post(environment.transactionAPI + '/api/get/participant', body1, options1).subscribe(res => {
   
  this.responsedata1= res.json();
  console.log(this.responsedata1);
@@ -168,7 +169,7 @@ let body2 = JSON.stringify(data2);
 
 console.log(body2);
 
-this.http.post('http://localhost:6001/api/get/participant', body2, options2).subscribe(res => {
+this.http.post(environment.transactionAPI + '/api/get/participant', body2, options2).subscribe(res => {
 
 this.responsedata2= res.json();
 console.log(this.responsedata2);
@@ -219,7 +220,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
   {
     var strWindowFeatures = "resizable=yes,scrollbars=yes";
     // window.open('http://localhost:4200/#/linedetail','newwindow',strWindowFeatures)
-    window.open("http://hmlr-ds-landingscreen.eu-gb.mybluemix.net/#/BCViewer",'newwindow',strWindowFeatures)
+    window.open(environment.landingScreen + "/#/BCViewer",'newwindow',strWindowFeatures)
   }
   reset(){
     var data = {}
@@ -234,11 +235,11 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("http://localhost:6001/api/resetdemo",body,options).subscribe(res=>{
+    this.http.post(environment.transactionAPI + "/api/resetdemo",body,options).subscribe(res=>{
       this.responsedata= res.json();
       console.log("responsedata",this.responsedata);
       var data1= JSON.stringify(this.responsedata);
-      this.cont="http://localhost:8081/#/contract/100000002/100000008/" + data1;
+      this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + data1;
       console.log("url",this.cont);
       localStorage.setItem("data2",data1);
       alert("Demo reset")
@@ -262,7 +263,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
     console.log("body",body);
 
 
-    this.http.post("http://localhost:6001/api/property/transfer",body,options).subscribe(res=>{
+    this.http.post(environment.transactionAPI + "/api/property/transfer",body,options).subscribe(res=>{
 
       this.changestatus();
     });
@@ -284,7 +285,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("http://localhost:6001/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+    this.http.post(environment.transactionAPI + "/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
       alert("Registry Updated");
       window.location.reload();
     });
@@ -306,7 +307,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
     console.log("body",body);
 
-    this.http.post("http://localhost:6001/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
+    this.http.post(environment.transactionAPI + "/api/propertyExchange/updateStatus",body,options).subscribe(res=>{
       alert("Buyer Moves In");
       window.location.reload();
     });

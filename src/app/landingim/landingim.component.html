@@ -25,13 +25,13 @@
                   <!-- <ion-icon ios="ios-finger-print" md="md-finger-print" class="fp"></ion-icon> -->
                 <!-- <i class="material-icons md-200" v-bind:class="{ success: isSuccess }">fingerprint</i> -->
               </button>
-              <a href="https://hmlr-ds-instantmortgageui.eu-gb.mybluemix.net/">
+              <a href="{{imlink}}">
               <button *ngIf="success=='t'" class = "button1">
                   <i class="material-icons fp">fingerprint</i><br>
                   <!-- <ion-icon ios="ios-finger-print" md="md-finger-print" class="fp"></ion-icon><br>{{firstname}}{{lastname}} -->
                 <!-- <i class="material-icons md-200" v-bind:class="{ success: isSuccess }">fingerprint</i> -->
               </button></a><br>
-              {{firstname}}{{lastname}}
+              {{firstname}} {{lastname}}
               <p>You have now authorised access to personal information to check your mortgage eligibility</p>
             </div>
   
