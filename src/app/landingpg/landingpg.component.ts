@@ -58,7 +58,7 @@ export class LandingpgComponent implements OnInit {
      this.excht=true;
      this.preexf=false;
      this.exchf=false;
-     this.conf="http://localhost:8081/#/signfail/"+this.data2;
+     this.conf="http://localhost:8081/#/confirm/contract"+this.data2;
    }
    else if(this.status=="CONTRACT_SIGNED" || this.status == "BUYER_MOVES_IN"){
     console.log("entering completed");
