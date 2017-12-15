@@ -2,9 +2,8 @@
 <div class="container">
     <div class="row">
         <!-- <div class="col-sm-1"></div> -->
-  <div class="col-sm-3"><a href='{{prop}}'><img class="prop" src="\assets\home4.png"><br>{{address.firstLine}} <br>{{address.city}}</a></div>
  <!-- <div class="NB"><div class="col-sm-1"></div> -->
-        <div class="col-sm-9">
+        <div class="col-md-12">
         <div class="arrow-steps clearfix">
                   <div *ngIf="preext" class="step current"> <span>Contract Created</span> </div>
                   <div *ngIf="preexf" class="step"> <span>Contract Created</span> </div>
@@ -23,10 +22,14 @@
   </div>
     </div>
 <div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-2"><a href='{{cont}}'><img class="seller" src="\assets\DEBBIE.png">Seller-{{sfirstname}} {{slastname}}</a></div>
-  <div class="col-sm-2"></div>
-  <div class="col-sm-2"><a href='{{conf}}'><img class="seller" src="\assets\EMMA.png">Buyer-{{bfirstname}} {{blastname}}</a></div>
+    <div class="col-sm-3"><a href='{{prop}}'><img class="prop" src="\assets\home4.png"><br>{{address.firstLine}} <br>{{address.city}}</a></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4"><a href='{{cont}}'><img class="seller" src="\assets\DEBBIE.png"></a>
+    <p>Seller-{{sfirstname}} {{slastname}}</p>
+  </div>
+  <div class="col-sm-4"><a href='{{conf}}'><img class="seller" src="\assets\EMMA.png"></a>
+    <p>Buyer-{{bfirstname}} {{blastname}}</p>
+  </div>
 </div>
 
   <div class="PBV"><span style="cursor:pointer;color:#0c74b5" (click)="opennewtab()">Popup Blockchain Viewer</span></div>
