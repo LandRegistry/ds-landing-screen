@@ -23,8 +23,8 @@ export class LandingpgComponent implements OnInit {
     this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + this.data2;
     console.log("url",this.cont);
     this.address = {
-      firstLine: '21 Cotham Lawn Road',
-      city: 'Bristol'
+      firstLine: '1 Digital Street',
+      city: 'England'
     }
     var data = {
       type:"PropertyExchange",
