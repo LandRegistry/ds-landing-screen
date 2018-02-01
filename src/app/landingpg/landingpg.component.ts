@@ -24,7 +24,8 @@ export class LandingpgComponent implements OnInit {
     console.log("url",this.cont);
     this.address = {
       firstLine: '1 Digital Street',
-      city: 'England'
+      city: 'England',
+      postcode: 'HM1 2LR'
     }
     var data = {
       type:"PropertyExchange",
