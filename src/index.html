@@ -1,43 +1,44 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-GB">
+
 <head>
   <meta charset="utf-8">
   <title>HMLR Transaction</title>
   <base href="/">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-      
-
-
-
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Open+Sans:400,800" rel="stylesheet">
 </head>
-<body>
-  <div class="row">
-<div class="col-sm-1"></div>
-    <div class="col-sm-1">
-    <a href="http://hmlr-ds-landingscreen.eu-gb.mybluemix.net/#/" style="text-decoration:none; color:black;">
-      <i class="material-icons home-icon">home</i>
-      <span class="home">Home</span>
-    </a>
-</div>
-<div class="col-sm-6"></div>
-<div class="col-sm-3"><img class="logo" src="\assets\UKHMLR.PNG"></div>
-  </div>
-  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.3/proj4.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.1/proj4leaflet.js"></script>
-        <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <app-root></app-root>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>
+          <a href="http://hmlr-ds-landingscreen.eu-gb.mybluemix.net/#/" style="text-decoration:none; color:black;">Digital Street</a>
+        </h1>
+      </div>
+      <div class="col-md-4 col-md-offset-4">
+        <img class="logo" src="\assets\UKHMLR.PNG">
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <!--Scripts here...-->
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.3/proj4.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.1/proj4leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!--App root here...-->
+  <div class="container">
+      <app-root></app-root>
+  </div>
 </body>
+
 </html>
