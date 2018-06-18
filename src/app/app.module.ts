@@ -12,6 +12,7 @@ import { MainlandingComponent } from './mainlanding/mainlanding.component';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { LandingimComponent } from './landingim/landingim.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -21,7 +22,8 @@ import { LandingimComponent } from './landingim/landingim.component';
     LandingpgComponent,
     BcviewerComponent,
     MainlandingComponent,
-    LandingimComponent
+    LandingimComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,6 @@ import { LandingimComponent } from './landingim/landingim.component';
     BootstrapModalModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, HeaderComponent]
 })
 export class AppModule { }
