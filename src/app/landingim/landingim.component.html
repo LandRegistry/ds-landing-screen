@@ -1,14 +1,13 @@
-<div class="details">
+<div class="text-center">
   <h3>Use your touch ID to allow access to your personal information.</h3>
   <h3>We'll use this information to check which mortgages you're eligible for.</h3>
-
+  <br>
   <button *ngIf="success=='f'" class="button" (click)="next()">
-    <i class="material-icons fp">fingerprint</i>
+      <img src="../../assets/touch id black.png" width="300" height="300">
   </button>
   <a href="{{imlink}}">
     <button *ngIf="success=='t'" class="button1">
-      <i class="material-icons fp">fingerprint</i>
-      <br>
+      <img src="../../assets/touch id green.png" width="300" height="300">
     </button>
   </a>
 </div>
