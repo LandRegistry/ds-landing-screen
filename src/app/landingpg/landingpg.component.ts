@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Http,Response,HttpModule, Headers,RequestOptions} from '@angular/http';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FormsModule } from '@angular/forms';
-import {DataTableModule} from "angular2-datatable";
+import { Http, Response, HttpModule, Headers, RequestOptions } from '@angular/http';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { DataTableModule } from "angular2-datatable";
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -11,114 +11,114 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./landingpg.component.css']
 })
 export class LandingpgComponent implements OnInit {
-  responsedata_status;status;responsedata;prop;conf;cont;data2;address;preext=false;preexf=false;excht=false;exchf=false;compt=false;compf=false;
-  sfirstname;slastname;bfirstname;blastname;responsedata1;responsedata2;bmit=false;bmif=false;rut=false;ruf=false;
+  responsedata_status; status; responsedata; prop; conf; cont; data2; address; preext = false; preexf = false; excht = false; exchf = false; compt = false; compf = false;
+  sfirstname; slastname; bfirstname; blastname; responsedata1; responsedata2; bmit = false; bmif = false; rut = false; ruf = false;
   responsedatapop: any[];
-  constructor(public http: Http, private router: Router,private route: ActivatedRoute) { 
-    this.data2=localStorage.getItem("data2");
-    this.prop=environment.transactionUI + "/#/property/contract"+this.data2;
-    console.log("url",this.prop);
-    this.conf=environment.transactionUI + "/#/confirm/contract"+this.data2;
-    console.log("url",this.conf);
-    this.cont=environment.transactionUI + "/#/contract/100000002/100000008/" + this.data2;
-    console.log("url",this.cont);
+  constructor(public http: Http, private router: Router, private route: ActivatedRoute) {
+    this.data2 = localStorage.getItem("data2");
+    this.prop = environment.transactionUI + "/#/property/contract" + this.data2;
+    console.log("url", this.prop);
+    this.conf = environment.transactionUI + "/#/confirm/contract" + this.data2;
+    console.log("url", this.conf);
+    this.cont = environment.transactionUI + "/#/contract/100000002/100000008/" + this.data2;
+    console.log("url", this.cont);
     this.address = {
       firstLine: '1 Digital Street',
       city: 'England',
       postcode: 'HM1 2LR'
     }
     var data = {
-      type:"PropertyExchange",
-      id:"propertyExchange".concat(this.data2),
-      user:"admin"	
+      type: "PropertyExchange",
+      id: "propertyExchange".concat(this.data2),
+      user: "admin"
 
-  }
+    }
 
-  let headers = new Headers({
-    'Content-Type': 'application/json'
-  });
-  let options = new RequestOptions({
-    headers: headers
-  });
-  let body = JSON.stringify(data);
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
+    let body = JSON.stringify(data);
 
-  console.log("body",body);
-  this.preexf=true;
-  this.exchf=true;
-  this.compf=true;
-  this.bmif=true;
-  this.ruf=true;
-  this.http.post(environment.transactionAPI + "/api/get/asset/", body, options).subscribe(res => {
+    console.log("body", body);
+    this.preexf = true;
+    this.exchf = true;
+    this.compf = true;
+    this.bmif = true;
+    this.ruf = true;
+    this.http.post(environment.transactionAPI + "/api/get/asset/", body, options).subscribe(res => {
 
-    this.responsedata_status= res.json();
-    console.log("responsedata",this.responsedata_status);
-    this.status=this.responsedata_status.status;
-    console.log("status",this.status);
-   if(this.status=="CONTRACT_CREATED"){
-     console.log("entering preexchange");
-     this.preext=true;
-     this.excht=true;
-     this.preexf=false;
-     this.exchf=false;
-     this.conf=environment.transactionUI + "/#/confirm/contract"+this.data2;
-   }
-   else if(this.status=="CONTRACT_SIGNED" || this.status == "BUYER_MOVES_IN"){
-    console.log("entering completed");
-    this.preext=true;
-    this.excht=true;
-    this.compt=true;
-    this.bmit=true;
-    this.preexf=false;
-    this.exchf=false;
-    this.compf=false;
-    this.bmif=false;
-    this.conf=environment.transactionUI + "/#/payment/propertyExchange"+this.data2;    
-  }
-
-  else if(this.status == "REGISTRY_UPDATED"){
-    console.log("entering registry updated");
-    this.preext=true;
-    this.excht=true;
-    this.compt=true;
-    this.bmit=true;
-    this.rut=true;
-    this.preexf=false;
-    this.exchf=false;
-    this.compf=false;
-    this.bmif=false;
-    this.ruf=false;
-  }
-  else {
-    console.log("entering else");
-    this.preexf=true;
-    this.exchf=true;
-    this.compf=true;
-  }
-  });
-  this.http.get(environment.composerExplorer + "/api/queries/selectAllTransactions").subscribe(res => {
-    this.responsedatapop= res.json();
-    console.log(this.responsedatapop);
-    console.log(this.responsedatapop[0].transactionType);
-    
-    this.responsedatapop.sort(function(n1, n2) {
-      if (n1.transactionTimestamp > n2.transactionTimestamp) {
-          return -1;
-      } else if (n1.transactionTimestamp < n2.transactionTimestamp) {
-          return 1;
-      } else {
-          return 0;
+      this.responsedata_status = res.json();
+      console.log("responsedata", this.responsedata_status);
+      this.status = this.responsedata_status.status;
+      console.log("status", this.status);
+      if (this.status == "CONTRACT_CREATED") {
+        console.log("entering preexchange");
+        this.preext = true;
+        this.excht = true;
+        this.preexf = false;
+        this.exchf = false;
+        this.conf = environment.transactionUI + "/#/confirm/contract" + this.data2;
       }
-  }); 
-  },err=>(
+      else if (this.status == "CONTRACT_SIGNED" || this.status == "BUYER_MOVES_IN") {
+        console.log("entering completed");
+        this.preext = true;
+        this.excht = true;
+        this.compt = true;
+        this.bmit = true;
+        this.preexf = false;
+        this.exchf = false;
+        this.compf = false;
+        this.bmif = false;
+        this.conf = environment.transactionUI + "/#/payment/propertyExchange" + this.data2;
+      }
 
-           alert("something went wrong")
-         ));
+      else if (this.status == "REGISTRY_UPDATED") {
+        console.log("entering registry updated");
+        this.preext = true;
+        this.excht = true;
+        this.compt = true;
+        this.bmit = true;
+        this.rut = true;
+        this.preexf = false;
+        this.exchf = false;
+        this.compf = false;
+        this.bmif = false;
+        this.ruf = false;
+      }
+      else {
+        console.log("entering else");
+        this.preexf = true;
+        this.exchf = true;
+        this.compf = true;
+      }
+    });
+    this.http.get(environment.composerExplorer + "/api/queries/selectAllTransactions").subscribe(res => {
+      this.responsedatapop = res.json();
+      console.log(this.responsedatapop);
+      console.log(this.responsedatapop[0].transactionType);
+
+      this.responsedatapop.sort(function (n1, n2) {
+        if (n1.transactionTimestamp > n2.transactionTimestamp) {
+          return -1;
+        } else if (n1.transactionTimestamp < n2.transactionTimestamp) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+    }, err => (
+
+      alert("something went wrong")
+    ));
 
   }
-  
+
 
   ngOnInit() {
-    
+
 
     // var buyerRequest = JSON.stringify({
     //   type: "Buyer",
@@ -130,57 +130,57 @@ export class LandingpgComponent implements OnInit {
       type: "Buyer",
       id: "100000008",
       user: "admin"
-  } 
+    }
 
-  let headers1 = new Headers({
-    'Content-Type': 'application/json'
-});
-let options1 = new RequestOptions({
-    headers: headers1
-});
-let body1 = JSON.stringify(data1); 
+    let headers1 = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options1 = new RequestOptions({
+      headers: headers1
+    });
+    let body1 = JSON.stringify(data1);
 
-console.log(body1);
+    console.log(body1);
 
-this.http.post(environment.transactionAPI + '/api/get/participant', body1, options1).subscribe(res => {
-  
- this.responsedata1= res.json();
- console.log(this.responsedata1);
- console.log(this.responsedata1.saleParticipantFirstName);
- console.log(this.responsedata1.saleParticipantLastName);
- 
-   this.bfirstname=this.responsedata1.saleParticipantFirstName,
-  this.blastname=this.responsedata1.saleParticipantLastName
+    this.http.post(environment.transactionAPI + '/api/get/participant', body1, options1).subscribe(res => {
 
-});
+      this.responsedata1 = res.json();
+      console.log(this.responsedata1);
+      console.log(this.responsedata1.saleParticipantFirstName);
+      console.log(this.responsedata1.saleParticipantLastName);
 
-var data2 = {
-  type: "Seller",
-  id: "100000002",
-  user: "admin"
-} 
+      this.bfirstname = this.responsedata1.saleParticipantFirstName,
+        this.blastname = this.responsedata1.saleParticipantLastName
 
-let headers2 = new Headers({
-'Content-Type': 'application/json'
-});
-let options2 = new RequestOptions({
-headers: headers2
-});
-let body2 = JSON.stringify(data2); 
+    });
 
-console.log(body2);
+    var data2 = {
+      type: "Seller",
+      id: "100000002",
+      user: "admin"
+    }
 
-this.http.post(environment.transactionAPI + '/api/get/participant', body2, options2).subscribe(res => {
+    let headers2 = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options2 = new RequestOptions({
+      headers: headers2
+    });
+    let body2 = JSON.stringify(data2);
 
-this.responsedata2= res.json();
-console.log(this.responsedata2);
-console.log(this.responsedata2.saleParticipantFirstName);
-console.log(this.responsedata2.saleParticipantLastName);
+    console.log(body2);
 
-this.sfirstname=this.responsedata2.saleParticipantFirstName,
-this.slastname=this.responsedata2.saleParticipantLastName
+    this.http.post(environment.transactionAPI + '/api/get/participant', body2, options2).subscribe(res => {
 
-});
+      this.responsedata2 = res.json();
+      console.log(this.responsedata2);
+      console.log(this.responsedata2.saleParticipantFirstName);
+      console.log(this.responsedata2.saleParticipantLastName);
+
+      this.sfirstname = this.responsedata2.saleParticipantFirstName,
+        this.slastname = this.responsedata2.saleParticipantLastName
+
+    });
 
     // var sellerRequest = JSON.stringify({
     //   type: "Seller",
@@ -217,11 +217,10 @@ this.slastname=this.responsedata2.saleParticipantLastName
     // })
 
   }
-  opennewtab()
-  {
+  opennewtab() {
     var strWindowFeatures = "resizable=yes,scrollbars=yes";
     // window.open('http://localhost:4200/#/linedetail','newwindow',strWindowFeatures)
-    window.open(environment.landingScreen + "/#/BCViewer",'newwindow',strWindowFeatures)
+    window.open(environment.landingScreen + "/#/BCViewer", 'newwindow', strWindowFeatures)
   }
   // reset(){
   //   var data = {}
@@ -268,7 +267,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
 
   //     this.changestatus();
   //   });
-      
+
   // }
   // changestatus(){
   //   var data ={
@@ -290,7 +289,7 @@ this.slastname=this.responsedata2.saleParticipantLastName
   //     alert("Registry Updated");
   //     window.location.reload();
   //   });
-    
+
   // }
   // movein(){
   //   var data ={
@@ -313,12 +312,12 @@ this.slastname=this.responsedata2.saleParticipantLastName
   //     window.location.reload();
   //   });
   // }
-  div_hide(){
+  div_hide() {
     document.getElementById('abc').style.display = "none";
-    }
-    div_show() {
-      console.log("index value in popo up")
-      
+  }
+  div_show() {
+    console.log("index value in popo up")
+
     document.getElementById('abc').style.display = "block";
-    }
+  }
 }

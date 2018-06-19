@@ -8,9 +8,9 @@ describe('LandingpgComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LandingpgComponent ]
+      declarations: [LandingpgComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
