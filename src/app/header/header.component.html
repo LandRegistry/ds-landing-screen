@@ -1,15 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <h1>
-        <a href="http://hmlr-ds-landingscreen.eu-gb.mybluemix.net/#/" style="text-decoration:none; color:black;">Digital Street</a>
-        <br>
-        <small>{{name}}</small>
-      </h1>
+
+<div class="header">  
+  <div class="title" *ngIf="subtitle; then subtitleBlock else mainBlock">
+  </div>
+  <ng-template #mainBlock>
+    <div class="title-section">
+      <a class="title-main" href="/">Digital Street</a>
     </div>
-    <div class="col-md-4 col-md-offset-4">
-      <img class="logo" src="\assets\UKHMLR.PNG">
+  </ng-template>
+  <ng-template #subtitleBlock>
+    <div class="title-sub-section">
+      <a class="title-sub" href="/">Digital Street
+      <br>
+      <p class="subtitle">{{subtitle}}</p></a>
     </div>
+  </ng-template>
+  <div class="logo">
+    <img src="/assets/hmlr_logo.png" width="175" alt="HM Land Registry Logo">
   </div>
 </div>
-<hr>

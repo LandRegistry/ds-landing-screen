@@ -1,12 +1,18 @@
 /* Breadcrups CSS */
 
+.arrow-steps {
+    margin: -20px auto 50px;
+    width: 90%;
+}
+
 .arrow-steps .step {
 text-align: center;
 /* color:white;   */
 cursor: default;
-margin: 0 3px;
+margin: 0 10px;
 padding: 10px 10px 10px 30px;
-min-width: 180px;
+/* min-width: 180px; */
+width: 18%;
 float: left;
 position: relative;
 background-color: #ddd;
@@ -25,7 +31,7 @@ top: 0;
 right: -17px;
 width: 0;
 height: 0;
-border-top: 19px solid transparent;
+border-top: 23px solid transparent;
 border-bottom: 17px solid transparent;
 border-left: 17px solid #ddd;
 z-index: 2;
@@ -70,9 +76,11 @@ transition: opacity 0.3s ease 0.5s;
 
 .arrow-steps .step.current {
 color: #fff;
-background-color: #23468c;
+/* background-color: #23468c; */
+background-color: #21a80a;
 }
 
 .arrow-steps .step.current:after {
-border-left: 17px solid #23468c;
+/* border-left: 17px solid #23468c; */
+border-left: 17px solid #21a80a;
 }

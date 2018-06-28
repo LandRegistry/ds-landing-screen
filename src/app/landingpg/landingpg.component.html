@@ -1,65 +1,73 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="arrow-steps clearfix">
-      <div *ngIf="preext" class="step current">
-        <span>Contract created</span>
+<header subtitle="Property exchange assistant" style="background-color: white"></header>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="arrow-steps clearfix">
+        <div *ngIf="preext" class="step current">
+          <span>Contract created</span>
+        </div>
+        <div *ngIf="preexf" class="step">
+          <span>Contract created</span>
+        </div>
+        <div *ngIf="excht" class="step current">
+          <span>Seller has signed</span>
+        </div>
+        <div *ngIf="exchf" class="step">
+          <span>Seller has signed</span>
+        </div>
+        <div *ngIf="compt" class="step current">
+          <span>Buyer has signed</span>
+        </div>
+        <div *ngIf="compf" class="step">
+          <span>Buyer has signed</span>
+        </div>
+        <div *ngIf="bmit" class="step current">
+          <span>Deposit Paid</span>
+        </div>
+        <div *ngIf="bmif" class="step">
+          <span>Deposit Paid</span>
+        </div>
+        <div *ngIf="rut" class="step current">
+          <span>Completion</span>
+        </div>
+        <div *ngIf="ruf" class="step">
+          <span>Completion</span>
+        </div>
       </div>
-      <div *ngIf="preexf" class="step">
-        <span>Contract created</span>
-      </div>
-      <div *ngIf="excht" class="step current">
-        <span>Seller has signed</span>
-      </div>
-      <div *ngIf="exchf" class="step">
-        <span>Seller has signed</span>
-      </div>
-      <div *ngIf="compt" class="step current">
-        <span>Buyer has signed</span>
-      </div>
-      <div *ngIf="compf" class="step">
-        <span>Buyer has signed</span>
-      </div>
-      <div *ngIf="bmit" class="step current">
-        <span>Deposit Paid</span>
-      </div>
-      <div *ngIf="bmif" class="step">
-        <span>Deposit Paid</span>
-      </div>
-      <div *ngIf="rut" class="step current">
-        <span>Completion</span>
-      </div>
-      <div *ngIf="ruf" class="step">
-        <span>Completion</span>
-      </div>
+      <br>
     </div>
-    <br>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-4 text-center">
-    <a href='{{prop}}'>
-      <img src="../../assets/_property_ icon.png" width="200px">
-    </a>
-    <h3>Property</h3>
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <a href='{{prop}}'><img src="../../assets/_property_ icon.png" width="200px"></a>
+      <br>
+      <br>
+      <strong>Property</strong>
+    </div>
+    <div class="col-md-4 text-center">
+      <a href='{{cont}}'><img src="../../assets/_seller_ icon.png" width="200px"></a>
+      <br>
+      <br>
+      <strong>Seller</strong>
+    </div>
+    <div class="col-md-4 text-center">
+      <a href='{{conf}}'><img src="../../assets/_buyer_ icon.png" width="200px"></a>
+      <br>
+      <br>
+      <strong>Buyer</strong>
+    </div>
   </div>
-  <div class="col-md-4 text-center">
-    <a href='{{cont}}'>
-      <img src="../../assets/_seller_ icon.png" width="200px">
-    </a>
-    <h3>Seller</h3>
-  </div>
-  <div class="col-md-4 text-center">
-    <a href='{{conf}}'>
-      <img src="../../assets/_buyer_ icon.png" width="200px">
-    </a>
-    <h3>Buyer</h3>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12 text-center">
-    <br>
-    <a class="btn btn-default" href="/#/BCViewer" role="button">Blockchain Viewer</a>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <br>
+      <a class="btn btn-default" href="/#/BCViewer" role="button">Blockchain Viewer</a>
+    </div>
   </div>
+
 </div>

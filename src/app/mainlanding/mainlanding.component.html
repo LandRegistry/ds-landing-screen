@@ -1,33 +1,34 @@
-<div class="row">
-  <div class="col-md-4 text-center">
-    <h3>
-      <a href="#">
-        <img class="prop" src="\assets\Property-Assistant.png">
-        <br>
-        <br> Property advisor
-      </a>
-    </h3>
-  </div>
-  <div class="col-md-4 text-center">
-    <h3>
-      <a href='/#/LandingIM'>
-        <img class="seller" src="\assets\Instant-Mortgage_ICON.png">
-        <br>
-        <br> Instant mortgage
-      </a>
-    </h3>
-  </div>
-  <div class="col-md-4 text-center">
-    <h3>
-      <a href='/#/Landing'>
-        <img class="seller" src="\assets\Property-Exchange-Assistant.png">
-        <br>
-        <br> Property exchange assistant
-      </a>
-    </h3>
-  </div>
+<header style="background-color: white"></header>
 
-</div>
-<div class="row">
-  <button type="submit" class="btn btn-default pull-right" (click)='reset()'>Reset</button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <a href="#" (click)="opennewtab()" ><img class="prop" src="\assets\Property-Assistant.png"></a>
+            <br>
+            <br>
+            <strong>Property advisor</strong>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href='/#/LandingIM'><img class="seller" src="\assets\Instant-Mortgage_ICON.png"></a>
+            <br>
+            <br>
+            <strong>Instant mortgage</strong>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href='/#/Landing'><img class="seller" src="\assets\Property-Exchange-Assistant.png"></a>
+            <br>
+            <br>
+            <strong>Property exchange assistant</strong>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-default" (click)='reset()'>Reset</button>
+        </div>
+    </div>
 </div>

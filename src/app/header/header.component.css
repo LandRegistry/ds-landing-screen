@@ -1,3 +1,57 @@
 hr {
   border-top: 1px solid black;
 }
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  /* line-height: 80px; */
+  background-color: #fff;
+  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+  padding: 0 80px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid black;
+}
+
+.title-section {
+  height: 100%;
+  float: left;
+}
+
+.title-main {
+  font-size: 1.3em;
+  line-height: 80px;
+  color: #000;
+}
+
+.title-sub {
+  color: #000;
+  font-size: 1.3em;
+}
+
+.title-sub-section {
+  height: 100%;
+  float: left;
+  padding-top: 15px;
+}
+
+.subtitle {
+  font-size: .9em;
+  color: #000;
+  font-weight: bold;
+}
+
+.logo {
+  height: 100%;
+  float: right;
+  display: flex;
+  align-items : center;
+
+}
+
+.logo img {
+  vertical-align: middle;
+}
