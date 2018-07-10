@@ -4,7 +4,7 @@
 
   <form class="form">
    
-   <table id="customers" [mfData]="responsedata" #mf="mfDataTable" class="maintable" [mfRowsOnPage]="10">
+   <table id="customers" [mfData]="responsedata" #mf="mfDataTable" class="maintable" [mfRowsOnPage]="10" style="margin-top: -50px;">
        <thead>
        <tr>
        <th>Transaction</th>    
@@ -17,7 +17,7 @@
        <tbody>
        <tr *ngFor="let rd of mf.data; let i = index">
             <td>{{calltrans(rd.transactionType)}}</td> 
-            <td>{{rd.transactionTimestamp}}</td>
+            <td>{{rd.transactionTimestamp | date : "EEEE dd MMMM, y h:mm:ss"}}</td>
             <td>{{rd.transactionId}}</td>
             <td>{{rd.transactionType}}</td>
             <td>{{rd.transactionInvoked}}</td>
